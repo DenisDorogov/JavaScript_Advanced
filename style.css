@@ -580,6 +580,12 @@ a {
     display: block;
 }
 
+.item-clear {
+    height: 0;
+    width: 261px;
+    margin-bottom: 0;
+}
+
 .button-all {
     display: block;
     margin: 58px auto 113px;
