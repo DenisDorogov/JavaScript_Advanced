@@ -78,9 +78,8 @@ class GoodsList {
     }
     render() {
         let listHtml = '';
-        this.goods.forEach(good => {
-            const goodItem = new GoodsItem(good.title, good.price, good.srcImg); // не пойму как сделать значение по умолчанию.
-//            if (good.srcImg == undefined) good.srcImg = 'img/NoPhoto.jpg'
+            this.goods.forEach(good => {
+            const goodItem = new GoodsItem(good.title, good.price, good.srcImg == undefined ? 'img/NoPhoto.jpg' : good.srcImg); 
             listHtml += goodItem.render();
         });
         document.querySelector('.items').innerHTML = listHtml;
@@ -88,7 +87,7 @@ class GoodsList {
     totalPrice () {
         let total = 0;
         this.goods.forEach(sum => total += sum.price);
-        console.log('total = ' + total);
+        console.log('total = $' + total);
     }
 }
 const list = new GoodsList(); // Создаём экземпляр класса GoodsList
