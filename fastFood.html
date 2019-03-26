@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fast Food</title>
+    <script>
+        let inputSize = 'big';
+        let inputStuffing = ['salad', 'cheese'];
+        
+        class Hamburger {
+            constructor(size, stuffing) {
+                //                let stuffing;
+                //                let hamburger;
+            }
+            addTopping(topping) {};
+            removeTopping(topping) {};
+            getToppings(topping) {
+                const toppingsList = [{
+                        name: 'cheese',
+                        addPrice: 10,
+                        addCallories: 20
+                    },
+                    {
+                        name: 'salad',
+                        addPrice: 20,
+                        addCallories: 5
+                    },
+                    {
+                        name: 'potatoes',
+                        addPrice: 15,
+                        addCallories: 10
+                    },
+                ];
+            };
+            getSize() {
+                const sizeList = [{
+                        size: 'small',
+                        addPrice: 50,
+                        addCallories: 20
+                    },
+                    {
+                        size: 'big',
+                        addPrice: 100,
+                        addCallories: 40
+                    },
+                ];
+                for (let i = 0; i < sizeList.length; i++) {
+                    if (sizeList[i] == size) return sizeList[i]; 
+                };
+            }
+            getStuffing() {
+                
+            };
+            calculatePrice() {
+                
+            };
+            calculateCalories() {};
+        }
+        class TheHamburger extends Hamburger {
+            constructor(inputSize, inputStuffing) {
+                
+                
+            }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
