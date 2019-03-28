@@ -13,20 +13,25 @@ class GoodsItem {
 class GoodsList {
     constructor() {
         this.goods = [];
-    }
-    fetchGoods(callback) {
+    };
+    promise.then(resolve) {
+//    fetchGoods() {
         makeGETRequest(`${API_URL}`, (goods) => {
-            this.goods = JSON.parse(goods);
-            callback();
+            resolve(this.goods = JSON.parse(goods));
+            
         });
-    }
+    };
+
+
+
+
     render() {
-    let listHtml = '';
-    this.goods.forEach(good => {
-        const goodItem = new GoodsItem(good.title, good.price);
-        listHtml += goodItem.render();
-    });
-    document.querySelector('.goods-list').innerHTML = listHtml;
+        let listHtml = '';
+        this.goods.forEach(good => {
+            const goodItem = new GoodsItem(good.title, good.price);
+            listHtml += goodItem.render();
+        });
+        document.querySelector('.goods-list').innerHTML = listHtml;
     }
 }
 const list = new GoodsList(); // Создаём экземпляр класса GoodsList
@@ -34,22 +39,42 @@ list.fetchGoods(() => {
     list.render();
 });
 
+//const promise = new Promise((resolve, reject) => {});
 
-function makeGETRequest(url, callback) {
-        var xhr;
-        
+const promise = new Promise((resolve) => {
+    function makeGETRequest(url, callback) {
+    var xhr;
         if (window.XMLHttpRequest) {
             xhr = new XMLHttpRequest();
         } else if (window.ActiveXObject) {
-            xhr = new ActiveXObject("Microsoft.XMLHTTP"); //Это нужно для IE
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                callback(xhr.responceText);
+                callback(xhr.responseText);
             }
         }
         xhr.open('GET', url);
         xhr.send();
-    }
+    });
+});
 
+
+
+
+//function makeGETRequest(url, callback) {
+//    var xhr;
+//
+//    if (window.XMLHttpRequest) {
+//        xhr = new XMLHttpRequest();
+//    } else if (window.ActiveXObject) {
+//        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+//    }
+//    xhr.onreadystatechange = function () {
+//        if (xhr.readyState === XMLHttpRequest.DONE) {
+//            callback(xhr.responseText);
+//        }
+//    }
+//    xhr.open('GET', url);
+//    xhr.send();
+//}
