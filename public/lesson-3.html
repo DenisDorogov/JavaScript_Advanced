@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 3</title>
+    <script>
+        
+    function makeGETRequest(url, callback) {
+        var xhr;
+        
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                callback(xhr.responceText);
+            }
+        }
+        xhr.open('GET', '/catalog.json');
+        xhr.send();
+    }
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
