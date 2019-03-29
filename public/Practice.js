@@ -49,13 +49,13 @@ const promise = new Promise((resolve) => {
         } else if (window.ActiveXObject) {
             xhr = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function () { // Подписка на события
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 callback(xhr.responseText);
             }
         }
         xhr.open('GET', url);
-        xhr.send();
+        xhr.send(); // Отправка запроса
     });
 });
 
