@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expression</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        form {
+            padding: 30px;
+            background-color: #ccc;
+            
+        }
+
+        #replace {
+            cursor: pointer;
+        }
+        #result-text {
+            padding: 30px;
+            background-color: #ccc;
+            width: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+   <div class="container">
+       <form action="#">
+        <legend>Заменить одинарные кавычки на двойные</legend>
+        <textarea id="input-text" name="text" cols="40" rows="3">'If you never try, you'll never know'. 'I must try'.</textarea><br>
+        
+    </form>
+    <button id="replace">Заменить<br>>>>></button><br>
+    <div id="result-text"></div>
+   </div>
+    
+    <script>
+        let inputText;
+
+        function readText() {
+            inputText = document.getElementById('input-text').value;
+            insertText(handlingText(inputText),"result-text");
+            
+            
+        };
+        $button = document.getElementById('replace');
+        $button.addEventListener('click', readText);
+        
+        function insertText(text, id) {
+            document.getElementById(id).innerHTML = text;
+        }
+        
+        function handlingText(text) {
+//            let regexp = /\w'\w/;
+            let regexp = /^'|(?<=\s)'|'(?=\s)|'(?=\.)|'$/g;
+            return text.replace(regexp, '"');
+        }
+        
+        
+
+    </script>
+
+</body>
+
+</html>
