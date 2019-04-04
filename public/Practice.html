@@ -4,22 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Практика по методичке</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
     <style>
-        header {padding: 30px; background-color: #ccc;} .cart-button {margin-left: 20px;}
+        header {
+            padding: 30px;
+            background-color: #ccc;
+        }
+
+        .cart-button {
+            margin-left: 20px;
+        }
+
     </style>
 </head>
 
 <body>
-    <header>
-        <input type="text" class="goods-search" />
-        <button class="search-button" type="button">Искать</button>
-        <button class="cart-button" type="button">Корзина</button>
-        <div class="goods-list"></div>
-    </header>
-    <main>
+    <div id="app">
+        <header>
+            <input type="text" class="goods-search" v-model="searchText" />
+            <button class="search-button" type="button" v-on:click="handleSearchClick">Искать</button>
+            <button class="cart-button" type="button">Корзина</button>
+        </header>
+        <main>
+            <div class="good-list">
+                <div class="goods-item">
+                    <ul>
+                        <li v-for="good in filteredGoods">
+                            <h3>{{ good.title }}</h3>
+                            <p>{{ good.price}}</p>
+                        </li>
+                    </ul>
 
-    </main>
-    <script src="Practice.js" ></script>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+    <script src="Practice.js"></script>
 </body>
 
 </html>
