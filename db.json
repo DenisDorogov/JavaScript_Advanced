@@ -1,1 +1,91 @@
-{}
+{
+  "users": [
+    {
+      "id": 1,
+      "phone": "4343543",
+      "name": "Vasya Pupkin"
+    },
+    {
+      "id": 3,
+      "phone": "4343543",
+      "name": "Vanya Pupkin"
+    },
+    {
+      "name": "Ivan Ivanov",
+      "phone": "13534543534",
+      "id": 4
+    },
+    {
+      "name": "Sergei Sidorov",
+      "phone": "4398759832",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "T-shirt man",
+      "price": 50,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item1.jpg",
+      "altImg": "T-shirt man"
+    },
+    {
+      "id": 2,
+      "name": "Rouse-blose",
+      "price": 52,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item2.jpg",
+      "altImg": "Rouse-blose"
+    },
+    {
+      "id": 3,
+      "name": "Blue jacket",
+      "price": 84,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item3.jpg",
+      "altImg": "Blue jacket"
+    },
+    {
+      "id": 4,
+      "name": "Summer dress",
+      "price": 61,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item4.jpg",
+      "altImg": "Summer dress"
+    },
+    {
+      "id": 5,
+      "name": "Stripy dress",
+      "price": 62,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item5.jpg",
+      "altImg": "Stripy dress"
+    },
+    {
+      "id": 6,
+      "name": "Gray suit",
+      "price": 100,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item6.jpg",
+      "altImg": "Gray suit"
+    },
+    {
+      "id": 7,
+      "name": "Beige breeches",
+      "price": 43,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item7.jpg",
+      "altImg": "Beige breeches"
+    },
+    {
+      "id": 8,
+      "name": "Blue hoodie",
+      "price": 59,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item8.jpg",
+      "altImg": "Blue hoodie"
+    }
+  ],
+  "cart": []
+}

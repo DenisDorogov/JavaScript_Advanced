@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Практика по методичке</title>
+    <title>Практика на уроке</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
     <style>
         header {
@@ -19,29 +19,29 @@
 </head>
 
 <body>
+   
     <div id="app">
         <header>
-            <input type="text" class="goods-search" v-model="searchLine" />
-            <button class="search-button" type="button" v-on:click="handleSearchClick">Искать</button>
-            <button class="cart-button" type="button">Корзина</button>
+            <input type="text" class="search-text" v-model="searchQuery" />
+            <button class="search-button" @click="handleSearchClick">Поиск</button>
+            <button class="cart-button">Корзина</button>
         </header>
         <main>
-            <div class="good-list">
-                <div class="goods-item">
-                    <ul>
-                        <li v-for="good in filteredGoods">
-                            <h3>{{ good.title }}</h3>
-                            <p>{{ good.price}}</p>
-                        </li>
-                    </ul>
-
+           <ul>
+               <li v-for = "item in cart">{{item.name}} {{item.quantity}} шт.<button @click = "handleDeleteClick(item)">X</button></li>
+           </ul>
+           <div>Стоимость корзины: {{total}}</div>
+            <div class="goods">
+                <div v-for="item in filteredItems" class="item">
+                    <h2>{{item.name}}</h2>
+                    <span>{{item.price}}</span>
+                    <button @click="handleByeClick(item)">Buy</button>
                 </div>
             </div>
         </main>
     </div>
 
 
-    <!--    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
     <script src="Practice.js"></script>
 </body>
 
