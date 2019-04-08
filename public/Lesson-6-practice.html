@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Практика на уроке</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <style>
+        header {
+            padding: 30px;
+            background-color: #ccc;
+        }
+
+        .cart-button {
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+   
+    <div id="app">
+      // Добавляем компонент hello со своими свойствами переменными.
+       <hello :firstName="firstName" :lastName="lastName"></hello>
+           <header>
+            <input type="text" class="search-text" v-model="searchQuery" />
+            <button class="search-button" @click="handleSearchClick">Поиск</button>
+            <button class="cart-button">Корзина</button>
+        </header>
+        <main>
+           <ul>
+               <li v-for = "item in cart">{{item.name}} {{item.quantity}} шт.<button @click = "handleDeleteClick(item)">X</button></li>
+           </ul>
+           <div>Стоимость корзины: {{total}}</div>
+            <div class="goods">
+                <div v-for="item in filteredItems" class="item">
+                    <h2>{{item.name}}</h2>
+                    <span>{{item.price}}</span>
+                    <button @click="handleByeClick(item)">Buy</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="Practice.js"></script>
+</body>
+
+</html>
