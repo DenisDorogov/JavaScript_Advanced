@@ -1,61 +1,19 @@
 // Урок 6
 const API_URL = 'http://localhost:3000';
 
-//Vue.component('hello', {
-//    data() {
-//        return {
-//            firstName: 'Vasya',
-//            lastName: 'Pupkin',   
-//        }
-//    },
-//    props: ['firstname', 'lastname'],
-//    template: `<div>Hello world!
-//    <slot></slot>
-//    <div>{{ firstname}} {{ lastname }}</div>
-//    </div>`
-//});
-
-Vue.component('product-item', {
-    props: ['item'],
-    template: `
-        <div class="item">
-        <h2>{{item.name}}</h2>
-        <span>{{item.price}}</span>
-        <button @click = "handleByeClick(item)" >Buy</button>
-        </div>`,
-    methods: {
-        handleByeClick(item) {
-            this.$emit('onBuy', item);
-        },
-        data() {
-            return {
-                items: [],
-                filteredItems: [],
-            };
+Vue.component('hello', {
+    data() {
+        return {
+            firstName: 'Vasya',
+            lastName: 'Pupkin',   
         }
-        mounted() {
-            fetch(`${API_URL}/products`) // Запрос продуктов.
-                .then(response => response.json())
-                .then((items) => {
-                    this.items = items;
-                    this.filteredItems = items;
-                });
-
-        }
-
-    }
-})
-
-Vue.component('products', {
-    template: `
-        <product-item @onBuy="handleBueClick"></product-item>
-    `,
-    methods: {
-        handleByeClick(item) {
-
-        }
-    }
-})
+    },
+    props: ['firstname', 'lastname'],
+    template: `<div>Hello world!
+    <slot></slot>
+    <div>{{ firstname}} {{ lastname }}</div>
+    </div>`
+});
 
 const app = new Vue({
     el: '#app',

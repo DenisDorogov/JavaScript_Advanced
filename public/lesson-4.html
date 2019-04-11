@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expression</title>
+    <style>
+        .container {
+            width: 800px;
+            display: flex;
+            flex-flow: wrap;
+        }
+
+        form {
+            padding: 30px;
+            background-color: #ccc;
+
+        }
+        #input-text {
+            margin-top: 20px;
+        }
+
+        #replace {
+            cursor: pointer;
+        }
+
+        #result-text {
+            padding: 30px;
+            background-color: #ccc;
+            width: 300px;
+        }
+
+        .contact-data {
+            display: flex;
+            flex-flow: column;
+        }
+
+        .label {
+            margin: 20px 0px 0px;
+        }
+
+        .input-field {
+            width: 230px;
+            float: right;
+            margin-left: 10px;
+        }
+
+        #send {
+            margin-top: 20px;
+        }
+        
+        .result-send {
+            margin: 20px auto;
+            color: red;
+            height: 30px;
+        }
+
+        .red-border {
+            outline: 1px solid red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#">
+            <legend>Заменить одинарные кавычки на двойные</legend>
+            <textarea id="input-text" name="text" cols="40" rows="3">'If you never try, you'll never know'. 'I must try'.</textarea><br>
+        </form>
+        <button id="replace">Заменить<br>>>>></button><br>
+        <div id="result-text"></div>
+        <form action="" class="contact-data">
+            <legend>Проверка введенных данных</legend>
+            <label for="" class="label">Имя <input class="input-field" id="name"></label>
+            <label for="" class="label">Телефон <input class="input-field" id="phone"></label>
+            <label for="" class="label">E-mail <input class="input-field" id="email"></label>
+
+
+            <button id="send">Отправить</button>
+            <div class="result-send" id="result-send"></div>
+        </form>
+
+    </div>
+
+
+    <script>
+        function handlingText() {
+            let inputText = document.getElementById('input-text').value;
+            let regexp = /^'|(?<=\s)'|'(?=\s)|'(?=\.)|'$/g;
+            let text = inputText.replace(regexp, '"');
+            document.getElementById("result-text").innerHTML = text;
+        };
+
+        function checkFields() {
+            let regexpName = /[a-z\sа-я]{2,}/i;
+            let regexpPhone = /\+?[78]\d{10}/;
+            let regexpEmail = /^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/i;
+            let err = false;
+
+            function check(field, regexp) {
+                let fieldStr = document.getElementById(field).value;
+                if (!regexp.test(fieldStr) || fieldStr.length == 0) {
+                    document.getElementById(field).classList.add('red-border');
+                    document.getElementById('result-send').innerHTML = 'Ошибка ввода';
+                    err = true;
+                } else {
+                    document.getElementById(field).classList.remove('red-border');
+                }
+            };
+            check('name', regexpName);
+            check('phone', regexpPhone);
+            check('email', regexpEmail);
+            if (err) {
+                document.getElementById('result-send').innerHTML = 'Ошибка ввода'
+            } else {
+                document.getElementById('result-send').innerHTML = '';
+                alert('Ваши данные получены.');
+            }
+        }
+        $buttonReplace = document.getElementById('replace');
+        $buttonSend = document.getElementById('send');
+        $buttonReplace.addEventListener('click', handlingText);
+        $buttonSend.addEventListener('click', checkFields);
+
+    </script>
+
+</body>
+
+</html>
