@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/DenisDorogov/JavaScript_Advanced#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "vue": "^2.6.10"
   },
   "devDependencies": {
