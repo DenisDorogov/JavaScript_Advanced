@@ -1,5 +1,20 @@
 // Урок 6
 const API_URL = 'http://localhost:3000';
+
+Vue.component('hello', {
+    data() {
+        return {
+            firstName: 'Vasya',
+            lastName: 'Pupkin',   
+        }
+    },
+    props: ['firstname', 'lastname'],
+    template: `<div>Hello world!
+    <slot></slot>
+    <div>{{ firstname}} {{ lastname }}</div>
+    </div>`
+});
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -7,6 +22,8 @@ const app = new Vue({
         filteredItems: [],
         searchQuery: '',
         cart: [],
+        firstName: 'Ivan',
+        lastName: 'Petrov'
     },
     mounted() {
         fetch(`${API_URL}/products`) // Запрос продуктов.

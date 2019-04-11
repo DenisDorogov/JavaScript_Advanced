@@ -21,7 +21,9 @@
 <body>
    
     <div id="app">
-        <header>
+      // Добавляем компонент hello со своими свойствами переменными.
+       <hello :firstName="firstName" :lastName="lastName"></hello>
+           <header>
             <input type="text" class="search-text" v-model="searchQuery" />
             <button class="search-button" @click="handleSearchClick">Поиск</button>
             <button class="cart-button">Корзина</button>
