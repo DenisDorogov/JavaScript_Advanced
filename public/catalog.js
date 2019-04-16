@@ -53,6 +53,12 @@ class GoodsList {
 }
 const list = new GoodsList(); // Создаём экземпляр класса GoodsList
 list.fetchGoods();
-//list.render();
 list.totalPrice();
+
+const $catalog = document.querySelector('.items');
+
+$catalog.addEventListener('click', event => {
+    if (event.target.classList = 'add');
+    console.log('Good in cart');
+})
 
