@@ -17,69 +17,30 @@ class GoodsList {
         this.goods = [];
     }
     fetchGoods() {
-        this.goods = [
-    {
-        title: 'T-shirt man',
-        price: 50,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item1.jpg',
-        altImg: 'T-shirt man'
-    },
-    {
-        title: 'Rouse-blose',
-        price: 52,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item2.jpg',
-        altImg: 'Rouse-blose'
-    },
-    {
-        title: 'Blue jacket',
-        price: 84,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item3.jpg',
-        altImg: 'Blue jacket'
-    },
-    {
-        title: 'Summer dress',
-        price: 61,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item4.jpg',
-        altImg: 'Summer dress'
-    },
-    {
-        title: 'Stripy dress',
-        price: 62,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item5.jpg',
-        altImg: 'Stripy dress'
-    },
-    {
-        title: 'Gray suit',
-        price: 100,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item6.jpg',
-        altImg: 'Gray suit'
-    },
-    {
-        title: 'Beige breeches',
-        price: 43,
-        urlSingle: 'single_page.html',
-        srcImg: 'img/Item7.jpg',
-        altImg: 'Beige breeches'
-    },
-    {
-        title: 'Blue hoodie',
-        price: 59,
-        urlSingle: 'single_page.html',
-//        srcImg: 'img/Item8.jpg',
-        altImg: 'Blue hoodie'
+        const promise = new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'products'); // настройка запроса
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if(xhr.status === 200) {
+                        resolve(JSON.parse(xhr.responseText));
+                    } else {
+                        reject(console.log('Не удалось получить список товаров.'));
+                    }
+                }
+            }
+            
+        });
+        promise.then((goods) => this.goods = goods,() => {})
+        .then(() => list.render(),() => {});
     }
-]
-    }
+    
     render() {
         let listHtml = '';
             this.goods.forEach(good => {
-            const goodItem = new GoodsItem(good.title, good.price, good.srcImg == undefined ? 'img/NoPhoto.jpg' : good.srcImg); 
+            const goodItem = new GoodsItem(good.title, good.price, good.srcImg == (undefined || '') ? 'img/NoPhoto.jpg' : good.srcImg ); 
+            console.log(goodItem);
             listHtml += goodItem.render();
         });
         document.querySelector('.items').innerHTML = listHtml;
@@ -92,6 +53,6 @@ class GoodsList {
 }
 const list = new GoodsList(); // Создаём экземпляр класса GoodsList
 list.fetchGoods();
-list.render();
+//list.render();
 list.totalPrice();
 
