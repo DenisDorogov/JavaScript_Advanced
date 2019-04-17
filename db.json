@@ -85,7 +85,7 @@
             "title": "T-shirt man leo black",
             "price": 31,
             "urlSingle": "single_page.html",
-            "srcImg": "img/Item9.jpg",
+            "srcImg": "img/Item11.jpg",
             "altImg": "T-shirt man leo"
     },
         {
@@ -160,5 +160,6 @@
             "srcImg": "img/Item20.jpg",
             "altImg": "Woman black throusers"
     }
-  ]
+  ],
+    "cart": []
 }
