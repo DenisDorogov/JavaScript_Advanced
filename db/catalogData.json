@@ -1,0 +1,162 @@
+[
+        {
+            "id": 1,
+            "title": "T-shirt man",
+            "price": 50,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item1.jpg",
+            "altImg": "T-shirt man"
+    },
+        {
+            "id": 2,
+            "title": "Rouse-blose",
+            "price": 52,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item2.jpg",
+            "altImg": "Rouse-blose"
+    },
+        {
+            "id": 3,
+            "title": "Blue jacket",
+            "price": 84,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item3.jpg",
+            "altImg": "Blue jacket"
+    },
+        {
+            "id": 4,
+            "title": "Summer dress",
+            "price": 61,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item4.jpg",
+            "altImg": "Summer dress"
+    },
+        {
+            "id": 5,
+            "title": "Stripy dress",
+            "price": 62,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item5.jpg",
+            "altImg": "Stripy dress"
+    },
+        {
+            "id": 6,
+            "title": "Gray suit",
+            "price": 100,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item6.jpg",
+            "altImg": "Gray suit"
+    },
+        {
+            "id": 7,
+            "title": "Beige breeches",
+            "price": 43,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item7.jpg",
+            "altImg": "Beige breeches"
+    },
+        {
+            "id": 8,
+            "title": "Blue hoodie",
+            "price": 59,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item8.jpg",
+            "altImg": "Blue hoodie"
+    },
+        {
+            "id": 9,
+            "title": "Black long hoodie",
+            "price": 62,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item9.jpg",
+            "altImg": "Black long hoodie"
+    },
+        {
+            "id": 10,
+            "title": "Gray coat",
+            "price": 99,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item10.jpg",
+            "altImg": "Gray coat"
+    },
+        {
+            "id": 11,
+            "title": "T-shirt man leo black",
+            "price": 31,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item11.jpg",
+            "altImg": "T-shirt man leo"
+    },
+        {
+            "id": 12,
+            "title": "Black T-shirt",
+            "price": 31,
+            "urlSingle": "single_page.html",
+            "srcImg": "",
+            "altImg": "Black T-shirt"
+    },
+        {
+            "id": 13,
+            "title": "Gray-white Jacket",
+            "price": 49,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item13.jpg",
+            "altImg": "Gray-white Jacket"
+    },
+        {
+            "id": 14,
+            "title": "Gray suit",
+            "price": 100,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item14.jpg",
+            "altImg": "Gray suit"
+    },
+        {
+            "id": 15,
+            "title": "Long Jacket",
+            "price": 83,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item15.jpg",
+            "altImg": "Long Jacket"
+    },
+        {
+            "id": 16,
+            "title": "T-shirt man leo blue",
+            "price": 31,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item16.jpg",
+            "altImg": "T-shirt man leo blue"
+    },
+        {
+            "id": 17,
+            "title": "Black woman suit",
+            "price": 105,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item17.jpg",
+            "altImg": "Black woman suit"
+    },
+        {
+            "id": 18,
+            "title": "Woman skirt",
+            "price": 34,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item18.jpg",
+            "altImg": "Woman skirt"
+    },
+        {
+            "id": 19,
+            "title": "Woman throusers",
+            "price": 36,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item19.jpg",
+            "altImg": "Woman throusers"
+    },
+        {
+            "id": 20,
+            "title": "Woman black throusers",
+            "price": 105,
+            "urlSingle": "single_page.html",
+            "srcImg": "img/Item20.jpg",
+            "altImg": "Woman black throusers"
+    }
+  ]
