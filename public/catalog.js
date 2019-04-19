@@ -48,22 +48,15 @@ class GoodsList {
         });
         document.querySelector('.items').innerHTML = listHtml;
     }
-    //    totalPrice () {
-    //        let total = 0;
-    //        this.goods.forEach(sum => total += sum.price);
-    //        console.log('total = $' + total);
-    //    }
 }
 const list = new GoodsList(); // Создаём экземпляр класса GoodsList
-
-list.fetchGoods();
+list.fetchGoods(); // Получаем товары с помощью метода
 
 
 const $catalog = document.querySelector('.items');
 $catalog.addEventListener('click', event => {
     event.preventDefault();
     if (event.target.classList = 'add') {
-//        console.log('Добавили.' + event.target)
-        cart.addCartItem(event);
+        cart.addCartItem(event.target); // Подписались на события, на клик "Добавить в корзину"
     }
-})
+});

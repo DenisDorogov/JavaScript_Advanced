@@ -1,10 +1,8 @@
-[
-    {
-        "id": 5,
-        "title": "Stripy dress",
-        "price": 62,
-        "urlSingle": "single_page.html",
-        "srcImg": "img/Item5.jpg",
-        "altImg": "Stripy dress"
-    }
-]
+[{
+    "id": 5,
+    "title": "Stripy dress",
+    "price": 62,
+    "urlSingle": "single_page.html",
+    "srcImg": "img/Item5.jpg",
+    "altImg": "Stripy dress"
+}];
