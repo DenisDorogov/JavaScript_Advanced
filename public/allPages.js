@@ -1,4 +1,4 @@
-//let cartItems = [];
+let cartItems = [];
 class Cart {
     constructor() {
         this.items = [];
@@ -11,11 +11,12 @@ class Cart {
     };
 
     addCartItem($item) {
-        let item = [];
+        let item = {};
         if ($item.className === 'add') {
             for (let i = 0; i < list.goods.length; i++) {
                 if (list.goods[i].id === +($item.id)) {
                     item = list.goods[i];
+  
                 };
             }
             const itemIdx = this.items.findIndex((entry) => entry.id === item.id);
@@ -26,8 +27,9 @@ class Cart {
                 this.items[itemIdx].quantity++;
             }
 
+            console.log('Корзина:');
             console.log(this.items);
-            fetch('/db/addToBasket.json', {
+            fetch('http://localhost:3000/db/addToBasket.json', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -35,8 +37,11 @@ class Cart {
                     body: JSON.stringify(this.items)
                 })
                 .then((response) => response.json())
+                .then((cart) => cart = this.items);
         }
     };
+    clearCart () {}
+    
     removeCartItem() {};
 
     changeCartItem() {};
@@ -46,11 +51,5 @@ class Cart {
 
 const cart = new Cart();
 
-const $header = document.querySelector('.container_header');
 
-//$header.addEventListener('click', (event) => {
-//    switch(event.target.id) {
-//            case 'myAccount'
-//    }
-//    
-//})
+

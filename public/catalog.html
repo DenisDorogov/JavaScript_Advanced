@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js">
     <script src="allPages.js"></script>
 
 </head>
@@ -519,13 +520,13 @@
                 </div>
                 <div class="panel-sort">
                     <label class="sortbye">Sort By
-                        <select class="sortbye-select">
+                        <select class="sortbye-select" id = "sortbye-select1">
                             <option value="Name">Name</option>
                             <option value="Price">Price</option>
                         </select>
                     </label>
                     <label class="sortbye">Show
-                        <select class="sortbye-select">
+                        <select class="sortbye-select2" id = "sortbye-select2">
                             <option value="9">9</option>
                             <option value="15">15</option>
                             <option value="30">30</option>
@@ -533,11 +534,12 @@
                     </label>
                 </div>
             </div>
-            <div class="items">
+            <div  id="app">
+              <products :query="filterValue" @onbuy="handleBuyClick"></products>
 
                 
             </div>
-          <script src="catalog.js"></script>  <!--  Подключили файл.-->
+          
             <div class="panel-catalog-lower">
                 <div class="panel-catalog-pages">
                     <ul>
@@ -672,6 +674,7 @@
             </div>
         </div>
     </footer>
+    <script src="catalog.js"></script>  <!--  Подключили файл.-->
 </div>
 
 
