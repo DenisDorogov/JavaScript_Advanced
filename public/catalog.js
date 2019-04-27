@@ -38,7 +38,7 @@ const urlSingle = 'single_page.html';
     });
 
       Vue.component('products', {
-        props: ['query', 'page', 'sortBy','count'], //Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Это как параметр функции.
+        props: ['query', 'page', 'sort', 'count', 'maxprice'], //Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Это как параметр функции.
         methods: {
           handleBuyClick(item) {
             this.$emit('onbuy', item);
@@ -47,8 +47,7 @@ const urlSingle = 'single_page.html';
         data() { // Функция, которая должна возвращать значение.
           return {
             items: [], // Также используется для хранения данных (переменных)
-            showItems: [],
-//            countShowItems: 9,
+            showItems: [],            
           };
         },
         computed: {
@@ -69,17 +68,28 @@ const urlSingle = 'single_page.html';
 //          },
           sliceItems() {
             this.showItems = this.items;
-//            let value = this.sortBy;
-//            this.showItems.sort(function (a, b) {
-//              if (a.value > b.value) {
-//                return 1;
-//              }
-//              if (a.value < b.value) {
-//                return -1;
-//              }
-//              return 0;
-//            });
-            this.showItems = this.items;
+            // Фильтруем по максимальной цене.
+            this.showItems = this.showItems.filter((item) => item.price < +this.maxprice)
+            // Сортируем
+            switch(this.sort) {
+                case 'price': {
+                  this.showItems.sort(function (a, b) {
+                    if (a.price > b.price) return 1;
+                    if (a.price < b.price) return -1;
+                    return 0;
+                  });
+                  break;
+                }
+                case 'title': {
+                  this.showItems.sort(function (a, b) {
+                    if (a.title > b.title) return 1;
+                    if (a.title < b.title) return -1;
+                    return 0;
+                  });
+                  break;
+                }
+            };
+            // Делим на страницы по количеству
             return this.showItems.slice((this.page - 1) * this.count, this.page * this.count )
         }
         },
@@ -89,7 +99,6 @@ const urlSingle = 'single_page.html';
             .then((items) => {
               this.items = items;
             });
-          console.log(this.count)
         },
         template: `
           <div class="items">
@@ -110,7 +119,8 @@ const app = new Vue({
     sortBy: 'title',
     showItems: '9',
     pageNumber: 1,
-    countShowItems: 9
+    countShowItems: 9,
+    priceRange: 200
   },
   mounted() {
     fetch(`${API_URL}/cart`)
@@ -121,12 +131,12 @@ const app = new Vue({
   },
   
   watch: {
-          sortBy: function() {
-            console.log('Watch сработал');
-          },
-          countShowItems: function() {
-            console.log('countShowItems = ' + this.countShowItems);
-          },
+//          sortBy: function() {
+//            console.log('Watch сработал');
+//          },
+//          countShowItems: function() {
+//            console.log('countShowItems = ' + this.countShowItems);
+//          },
     },
   computed: {
 //    total() {

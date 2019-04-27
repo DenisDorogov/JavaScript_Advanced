@@ -511,9 +511,9 @@
                 <div class="filter-price">
                     <h2>MAX PRICE</h2>
                     <form class="filter-form" oninput="pricemax.value=(filterPriceRange.value)" action="#">
-                        <input id="filterPriceRange" type="range" min="0" max="700" step="10" value="700"/>
+                        <input id="filterPriceRange" type="range" min="0" max="200" step="5" value="200" v-model="priceRange"/>
                         <p>
-                            <output name="pricemax" for="filter-Price-Range">700</output>
+                            <output name="pricemax" for="filter-Price-Range">200</output>
                         </p>
                     </form>
                 </div>
@@ -536,7 +536,7 @@
       
       
             <div>
-              <products :query="filterValue" :page="pageNumber" :sortBy="sortBy" :count="countShowItems" @onbuy="handleBuyClick"></products>
+              <products :query="filterValue" :page="pageNumber" :sort="sortBy" :count="countShowItems" :maxprice="priceRange" @onbuy="handleBuyClick"></products>
 
                 
             </div>
