@@ -38,7 +38,7 @@ const urlSingle = 'single_page.html';
     });
 
       Vue.component('products', {
-        props: ['query'], //Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Это как параметр функции.
+        props: ['query', 'page', 'sortBy','count'], //Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Это как параметр функции.
         methods: {
           handleBuyClick(item) {
             this.$emit('onbuy', item);
@@ -47,9 +47,12 @@ const urlSingle = 'single_page.html';
         data() { // Функция, которая должна возвращать значение.
           return {
             items: [], // Также используется для хранения данных (переменных)
+            showItems: [],
+//            countShowItems: 9,
           };
         },
         computed: {
+          
           filteredItems() {
             if(this.query) {
               const regexp = new RegExp(this.query, 'i');
@@ -57,7 +60,28 @@ const urlSingle = 'single_page.html';
             } else {
               return this.items;
             }
-          }
+          },
+//          sortItems(value) {
+//            this.items.sort((a.value,b.value) => {
+//              if (a > b) return 1;
+//              if (a < b) return -1;
+//            })
+//          },
+          sliceItems() {
+            this.showItems = this.items;
+//            let value = this.sortBy;
+//            this.showItems.sort(function (a, b) {
+//              if (a.value > b.value) {
+//                return 1;
+//              }
+//              if (a.value < b.value) {
+//                return -1;
+//              }
+//              return 0;
+//            });
+            this.showItems = this.items;
+            return this.showItems.slice((this.page - 1) * this.count, this.page * this.count )
+        }
         },
         mounted() { 
           fetch(`${API_URL}/products`) //Загружаем список товаров.
@@ -65,10 +89,11 @@ const urlSingle = 'single_page.html';
             .then((items) => {
               this.items = items;
             });
+          console.log(this.count)
         },
         template: `
           <div class="items">
-            <product-item v-for="entry in filteredItems" :item="entry" @onbuy="handleBuyClick"></product-item>
+            <product-item v-for="entry in sliceItems" :item="entry" @onbuy="handleBuyClick"></product-item>
           </div>  <!-- Корневой элемент, в котором будут товары(обязательно)-->
         `,// Отрисовка списка товаров
         // Создаём собственное onBuy событие для данного компонента.
@@ -82,6 +107,10 @@ const app = new Vue({
     cart: [],
     firstName: 'Ivan',
     lastName: 'Petrov',
+    sortBy: 'title',
+    showItems: '9',
+    pageNumber: 1,
+    countShowItems: 9
   },
   mounted() {
     fetch(`${API_URL}/cart`)
@@ -90,12 +119,24 @@ const app = new Vue({
         this.cart = items;
       });
   },
+  
+  watch: {
+          sortBy: function() {
+            console.log('Watch сработал');
+          },
+          countShowItems: function() {
+            console.log('countShowItems = ' + this.countShowItems);
+          },
+    },
   computed: {
 //    total() {
 //      return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 //    }
   },
   methods: {
+    changePage(p) {
+      this.pageNumber = p;
+    },
 //    handleDeleteClick(item) {
 //      if (item.quantity > 1) {
 //        fetch(`${API_URL}/cart/${item.id}`, {

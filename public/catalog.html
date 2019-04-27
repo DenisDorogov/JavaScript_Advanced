@@ -481,7 +481,7 @@
             <a href="catalog.html" class="filter-type">BRAND</a>
             <a href="catalog.html" class="filter-type">DESIGNER</a>
         </div>
-        <div class="panel-catalog">
+        <div class="panel-catalog" id="app">
             <div class="panel-filter-top">
                 <div class="trandingnow">
                     <h2>TRANDING NOW</h2>
@@ -508,7 +508,6 @@
                     <input type="checkbox" id="size-XL"><label for="size-XL">XL</label>
                     <input type="checkbox" id="size-XXL"><label for="size-XXL">XXL</label>
                 </div>
-                <!--goto-->
                 <div class="filter-price">
                     <h2>MAX PRICE</h2>
                     <form class="filter-form" oninput="pricemax.value=(filterPriceRange.value)" action="#">
@@ -520,13 +519,13 @@
                 </div>
                 <div class="panel-sort">
                     <label class="sortbye">Sort By
-                        <select class="sortbye-select" id = "sortbye-select1">
-                            <option value="Name">Name</option>
-                            <option value="Price">Price</option>
+                        <select class="sortbye-select" v-model="sortBy">
+                            <option value="title" >Name</option>
+                            <option value="price">Price</option>
                         </select>
                     </label>
                     <label class="sortbye">Show
-                        <select class="sortbye-select2" id = "sortbye-select2">
+                        <select class="sortbye-select" v-model="countShowItems">
                             <option value="9">9</option>
                             <option value="15">15</option>
                             <option value="30">30</option>
@@ -534,8 +533,10 @@
                     </label>
                 </div>
             </div>
-            <div  id="app">
-              <products :query="filterValue" @onbuy="handleBuyClick"></products>
+      
+      
+            <div>
+              <products :query="filterValue" :page="pageNumber" :sortBy="sortBy" :count="countShowItems" @onbuy="handleBuyClick"></products>
 
                 
             </div>
@@ -543,12 +544,11 @@
             <div class="panel-catalog-lower">
                 <div class="panel-catalog-pages">
                     <ul>
-                        <li><a class="pages-num" href="#"></a></li>
-                        <li><a class="pages-num" href="#">1</a></li>
-                        <li><a class="pages-num" href="#">2</a></li>
-                        <li><a class="pages-num" href="#">3</a></li>
-                        <li><a class="pages-num" href="#">4</a></li>
-                        <li><a class="pages-num" href="#">5</a></li>
+                        <li><a class="pages-num" href="#" @click.prevent=changePage(1)>1</a></li>
+                        <li><a class="pages-num" href="#" @click.prevent=changePage(2)>2</a></li>
+                        <li><a class="pages-num" href="#" @click.prevent=changePage(3)>3</a></li>
+                        <li><a class="pages-num" href="#" @click.prevent=changePage(4)>4</a></li>
+                        <li><a class="pages-num" href="#" @click.prevent=changePage(5)>5</a></li>
                         <li><a class="pages-num" href="#">6.....20</a></li>
                         <li><a class="pages-num" href="#"></a></li>
                     </ul>
