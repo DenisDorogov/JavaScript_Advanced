@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
     <script src="allPages.js"></script>
+    <script src="cart.js"></script>
+
 
 </head>
 
@@ -54,8 +56,10 @@
             <div class="header_r">
                 <div class="cart-head">
                     <a class="header_r" href="cart.html"><img src="img/cart.svg" alt="Добавить в корзину"></a>
-                    <div class="drop-cart">
-                        <div class="drop-cart-item">
+<!--------------------------------------------------------------------------------->
+                    <div id="appcart">
+                    <cartdrop class="drop-cart">
+<!--                     <div class="drop-cart-item">
                             <img src="img/cart-item1.jpg" alt="item1">
                             <div class="item-about">
                                 <h3 class="item-about-name">REBOX ZANE</h3>
@@ -92,9 +96,11 @@
                             <div>$500.00</div>
                         </div>
                         <a href="checkout.html" class="button-checkout">CHECKOUT</a>
-                        <a href="cart.html" class="button-checkout">GO TO CART</a>
+                        <a href="cart.html" class="button-checkout">GO TO CART</a> -->
+                    
                     </div>
-
+      </cartdrop>
+<!--------------------------------------------------------------------------------->
                 </div>
                 <a href="account.html" class="header_r redbutton">My Account</a>
             </div>
@@ -536,6 +542,7 @@
       
       
             <div>
+                            
               <products :query="filterValue" :page="pageNumber" :sort="sortBy" :count="countShowItems" :maxprice="priceRange" @onbuy="handleBuyClick"></products>
 
                 
@@ -674,7 +681,9 @@
             </div>
         </div>
     </footer>
+      <script src="cart.js"></script>
     <script src="catalog.js"></script>  <!--  Подключили файл.-->
+      
 </div>
 
 

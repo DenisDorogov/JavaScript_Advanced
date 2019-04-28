@@ -161,6 +161,16 @@
       "altImg": "Woman black throusers"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 9,
+      "title": "Black long hoodie",
+      "price": 62,
+      "urlSingle": "single_page.html",
+      "srcImg": "img/Item9.jpg",
+      "altImg": "Black long hoodie",
+      "quantity": 2
+    }
+  ],
   "users": []
 }

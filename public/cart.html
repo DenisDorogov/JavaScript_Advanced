@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    
 
 </head>
 <body>
@@ -455,8 +457,12 @@
             </ul>
         </div>
     </nav>
-    <div class="cart">
-        <table class="cart-list">
+    <div class="cart" id="appcart" >
+       
+
+
+<!--
+         <table class="cart-list" >
             <tr>
                 <th style="text-align: left">Product Details</th>
                 <th>unite Price</th>
@@ -465,8 +471,12 @@
                 <th>Subtotal</th>
                 <th>ACTION</th>
             </tr>
-            <tr>
-                <td class="cart__table_item1">
+-->
+
+            <carttable :cart="cart"></carttable>
+            
+<!--
+            <tr>                <td class="cart__table_item1">
                     <a href="single_page.html"><img src="img/item9.jpg" alt="Item"></a>
                     <div class="cart__table_about">
                         <h3>Mango  People  T-shirt</h3>
@@ -522,7 +532,11 @@
                     <div class="cart-item-del"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
                 </td>
             </tr>
-        </table>
+           
+        </table> -->
+
+
+        
         <div class="cart__block2">
             <a href="#" class="cart__2_buttons" title="Очистить корзину">cLEAR SHOPPING CART</a>
             <a href="catalog.html" class="cart__2_buttons" title="Продолжить покупки">cONTINUE sHOPPING</a>
@@ -548,11 +562,11 @@
             <div class="cart__block3_totalBlock">
                 <div class="cart__block3_totalSub">
                     <p>Sub total</p>
-                    <p class="pink">$900</p>
+                    <p class="pink">$ {{ total }}</p>
                 </div>
                 <div class="cart__block3_totalGrand">
                     <h3>Grand Total</h3>
-                    <h3 class="pink">$900</h3>
+                    <h3 class="pink">$ {{ total }}</h3>
                 </div>
                 <div class="horisontal-line2"></div>
                 <div class="redbutton">PROCESSED TO CHECKOUT</div>
@@ -623,6 +637,7 @@
             </div>
         </nav>
     </div>
+    <script src="cart.js"></script>
     <footer>
         <div class="footer-container">
             <div class="footer-left">&copy; 2019 Brand All Rights Reserved.</div>
